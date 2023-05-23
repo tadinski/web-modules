@@ -4,13 +4,13 @@ import { styled, useStyletron } from "styletron-react";
 
 // statically styled component
 const Title = styled("h1", {
-  color: "red",
+  color: "Pink",
   fontSize: "82px",
 });
 
 // dynamically styled component
 const SubTitle = styled("h2", ({ $size }) => ({
-  color: "blue",
+  color: "teal",
   fontSize: `${$size}px`,
 }));
 
@@ -19,9 +19,9 @@ export default function Home() {
   const [css] = useStyletron();
   return (
     <div>
-      <Title>Title</Title>
-      <SubTitle $size={50}>Subtitle</SubTitle>
-      <p className={css({ fontSize: "32px" })}>Styled by hook</p>
+      <Title>Home</Title>
+      <SubTitle $size={50}>Just text</SubTitle>
+      <p className={css({ fontSize: "32px" })}>Nothing more</p>
     </div>
   );
 }

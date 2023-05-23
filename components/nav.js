@@ -30,7 +30,7 @@ export default function Nav() {
         { icon: Upload, label: "Upcoming" },
       ],
     },
-    { icon: Upload, label: "Lifts", url: "/lifts" },
+    { icon: Upload, label: "Items", url: "/" },
   ]);
 
   return (
@@ -44,7 +44,7 @@ export default function Nav() {
                 <Link href={"/login"} passHref>
                   <StyledMainMenuItem>Login</StyledMainMenuItem>
                 </Link>
-                <Button onClick={() => router.push("/signup")} size="mini">
+                <Button onClick={() => router.push("/")} size="mini">
                   Join
                 </Button>
               </div>
