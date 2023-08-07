@@ -37,33 +37,14 @@ async function handler(req, res) {
         }
       );
       const registerResponse = await registerCall.json();
-
-      if (!registerCall.ok) {
-        // console.log(registerCall);
-        const messageResponse = registerResponse.message[0].messages[0].message;
-
-        switch (messageResponse) {
-          case "Email is already taken.":
-            res
-              .status(422)
-              .json({ message: "Такой E-mail уже зарегистрирован" });
-            break;
-          case "Please provide valid email address.":
-            res
-              .status(422)
-              .json({ message: "Пожалуйста, укажите правильный e-mail" });
-            break;
-          default:
-            res.status(422).json({ message: messageResponse });
-        }
-        return;
-      }
-
       console.log(registerResponse);
-      res.status(201).json({ message: "Регистрация успешна" });
-      console.log("User profile", registerResponse.user);
-      console.log("User token", registerResponse.jwt);
       console.log("sending to server success");
+      res
+        .status(201)
+        .json({
+          message: "Success",
+          isAlreadyregisteredBefore: registerResponse.isAlreadyregisteredBefore,
+        });
     } catch (error) {
       res.status(500).json(error.message);
       console.log("there was some error");

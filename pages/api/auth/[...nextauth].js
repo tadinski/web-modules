@@ -35,13 +35,11 @@ export default NextAuth({
     jwt: async ({ token, user }) => {
       if (user) {
         token.jwt = user.jwt;
-        token.user = user.user;
       }
       return Promise.resolve(token);
     },
     session: async ({ session, token }) => {
       session.jwt = token.jwt;
-      session.user = token.user;
       return Promise.resolve(session);
     },
   },
